@@ -28,7 +28,7 @@ public class FlightConfirmationPage extends AbstractPage {
         return this.flightConfirmationElement.isDisplayed();
     }
 
-    public String getPrice(){
+    public String getPrice() {
         String confirmation = this.flightConfirmationElement.getText();
         String price = this.totalPriceElement.getText();
         log.info("Flight confirmation# : {}", confirmation);

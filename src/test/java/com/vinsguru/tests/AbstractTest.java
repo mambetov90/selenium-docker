@@ -29,7 +29,7 @@ public abstract class AbstractTest {
     protected WebDriver driver;
 
     @BeforeSuite
-    public void setupConfig(){
+    public void setupConfig() {
         Config.initialize();
     }
 
@@ -41,7 +41,7 @@ public abstract class AbstractTest {
 
     private WebDriver getRemoteDriver() throws MalformedURLException {
         Capabilities capabilities = new ChromeOptions();
-        if(Constants.FIREFOX.equalsIgnoreCase(Config.get(Constants.BROWSER))){
+        if (Constants.FIREFOX.equalsIgnoreCase(Config.get(Constants.BROWSER))) {
             capabilities = new FirefoxOptions();
         }
         String urlFormat = Config.get(Constants.GRID_URL_FORMAT);
@@ -51,13 +51,13 @@ public abstract class AbstractTest {
         return new RemoteWebDriver(new URL(url), capabilities);
     }
 
-    private WebDriver getLocalDriver(){
+    private WebDriver getLocalDriver() {
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
 
     @AfterTest
-    public void quitDriver(){
+    public void quitDriver() {
         this.driver.quit();
     }
 

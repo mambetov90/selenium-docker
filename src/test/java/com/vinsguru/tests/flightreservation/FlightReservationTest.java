@@ -17,12 +17,12 @@ public class FlightReservationTest extends AbstractTest {
 
     @BeforeTest
     @Parameters("testDataPath")
-    public void setParameters(String testDataPath){
+    public void setParameters(String testDataPath) {
         this.testData = JsonUtil.getTestData(testDataPath, FlightReservationTestData.class);
     }
 
     @Test
-    public void userRegistrationTest(){
+    public void userRegistrationTest() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.goTo(Config.get(Constants.FLIGHT_RESERVATION_URL));
         Assert.assertTrue(registrationPage.isAt());
@@ -34,7 +34,7 @@ public class FlightReservationTest extends AbstractTest {
     }
 
     @Test(dependsOnMethods = "userRegistrationTest")
-    public void registrationConfirmationTest(){
+    public void registrationConfirmationTest() {
         RegistrationConfirmationPage registrationConfirmationPage = new RegistrationConfirmationPage(driver);
         Assert.assertTrue(registrationConfirmationPage.isAt());
         Assert.assertEquals(registrationConfirmationPage.getFirstName(), testData.firstName());
@@ -42,7 +42,7 @@ public class FlightReservationTest extends AbstractTest {
     }
 
     @Test(dependsOnMethods = "registrationConfirmationTest")
-    public void flightsSearchTest(){
+    public void flightsSearchTest() {
         FlightsSearchPage flightsSearchPage = new FlightsSearchPage(driver);
         Assert.assertTrue(flightsSearchPage.isAt());
         flightsSearchPage.selectPassengers(testData.passengersCount());
@@ -50,7 +50,7 @@ public class FlightReservationTest extends AbstractTest {
     }
 
     @Test(dependsOnMethods = "flightsSearchTest")
-    public void flightsSelectionTest(){
+    public void flightsSelectionTest() {
         FlightsSelectionPage flightsSelectionPage = new FlightsSelectionPage(driver);
         Assert.assertTrue(flightsSelectionPage.isAt());
         flightsSelectionPage.selectFlights();
@@ -58,7 +58,7 @@ public class FlightReservationTest extends AbstractTest {
     }
 
     @Test(dependsOnMethods = "flightsSelectionTest")
-    public void flightReservationConfirmationTest(){
+    public void flightReservationConfirmationTest() {
         FlightConfirmationPage flightConfirmationPage = new FlightConfirmationPage(driver);
         Assert.assertTrue(flightConfirmationPage.isAt());
         Assert.assertEquals(flightConfirmationPage.getPrice(), testData.expectedPrice());

@@ -20,21 +20,21 @@ public class VendorPortalTest extends AbstractTest {
 
     @BeforeTest
     @Parameters("testDataPath")
-    public void setPageObjects(String testDataPath){
+    public void setPageObjects(String testDataPath) {
         this.loginPage = new LoginPage(driver);
         this.dashboardPage = new DashboardPage(driver);
         this.testData = JsonUtil.getTestData(testDataPath, VendorPortalTestData.class);
     }
 
     @Test
-    public void loginTest(){
+    public void loginTest() {
         loginPage.goTo(Config.get(Constants.VENDOR_PORTAL_URL));
         Assert.assertTrue(loginPage.isAt());
         loginPage.login(testData.username(), testData.password());
     }
 
     @Test(dependsOnMethods = "loginTest")
-    public void dashboardTest(){
+    public void dashboardTest() {
         Assert.assertTrue(dashboardPage.isAt());
 
         // finance metrics
@@ -49,7 +49,7 @@ public class VendorPortalTest extends AbstractTest {
     }
 
     @Test(dependsOnMethods = "dashboardTest")
-    public void logoutTest(){
+    public void logoutTest() {
         dashboardPage.logout();
         Assert.assertTrue(loginPage.isAt());
     }

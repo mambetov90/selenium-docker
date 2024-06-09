@@ -30,13 +30,13 @@ public class FlightsSelectionPage extends AbstractPage {
         return this.confirmFlightsButton.isDisplayed();
     }
 
-    public void selectFlights(){
+    public void selectFlights() {
         int random = ThreadLocalRandom.current().nextInt(0, departureFlightsOptions.size());
         this.departureFlightsOptions.get(random).click();
         this.arrivalFlightsOptions.get(random).click();
     }
 
-    public void confirmFlights(){
+    public void confirmFlights() {
         this.confirmFlightsButton.click();
     }
 
