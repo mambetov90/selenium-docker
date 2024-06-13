@@ -25,12 +25,12 @@ public class FlightsSearchPage extends AbstractPage {
         return this.passengerSelect.isDisplayed();
     }
 
-    public void selectPassengers(String noOfPassengers) {
+    public void selectPassengers(String noOfPassengers){
         Select passengers = new Select(this.passengerSelect);
         passengers.selectByValue(noOfPassengers);
     }
 
-    public void searchFlights() {
+    public void searchFlights(){
         this.searchFlightsButton.click();
     }
 

@@ -50,23 +50,23 @@ public class DashboardPage extends AbstractPage {
         return this.monthlyEarningElement.isDisplayed();
     }
 
-    public String getMonthlyEarning() {
+    public String getMonthlyEarning(){
         return this.monthlyEarningElement.getText();
     }
 
-    public String getAnnualEarning() {
+    public String getAnnualEarning(){
         return this.annualEarningElement.getText();
     }
 
-    public String getProfitMargin() {
+    public String getProfitMargin(){
         return this.profitMarginElement.getText();
     }
 
-    public String getAvailableInventory() {
+    public String getAvailableInventory(){
         return this.availableInventoryElement.getText();
     }
 
-    public void searchOrderHistoryBy(String keyword) {
+    public void searchOrderHistoryBy(String keyword){
         this.searchInput.sendKeys(keyword);
     }
 
@@ -81,7 +81,7 @@ public class DashboardPage extends AbstractPage {
         ...
         ...
      */
-    public int getSearchResultsCount() {
+    public int getSearchResultsCount(){
         String resultsText = this.searchResultsCountElement.getText();
         String[] arr = resultsText.split(" ");
         // if we do not have 5th item, it would throw exception.
@@ -91,7 +91,7 @@ public class DashboardPage extends AbstractPage {
         return count;
     }
 
-    public void logout() {
+    public void logout(){
         this.userProfilePictureElement.click();
         this.wait.until(ExpectedConditions.visibilityOf(this.logoutLink));
         this.logoutLink.click();

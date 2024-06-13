@@ -32,7 +32,7 @@ public class RegistrationPage extends AbstractPage {
     @FindBy(id = "register-btn")
     private WebElement registerButton;
 
-    public RegistrationPage(WebDriver driver) {
+    public RegistrationPage(WebDriver driver){
         super(driver);
     }
 
@@ -42,27 +42,27 @@ public class RegistrationPage extends AbstractPage {
         return this.firstNameInput.isDisplayed();
     }
 
-    public void goTo(String url) {
+    public void goTo(String url){
         this.driver.get(url);
     }
 
-    public void enterUserDetails(String firstName, String lastName) {
+    public void enterUserDetails(String firstName, String lastName){
         this.firstNameInput.sendKeys(firstName);
         this.lastNameInput.sendKeys(lastName);
     }
 
-    public void enterUserCredentials(String email, String password) {
+    public void enterUserCredentials(String email, String password){
         this.emailInput.sendKeys(email);
         this.passwordInput.sendKeys(password);
     }
 
-    public void enterAddress(String street, String city, String zip) {
+    public void enterAddress(String street, String city, String zip){
         this.streetInput.sendKeys(street);
         this.cityInput.sendKeys(city);
         this.zipInput.sendKeys(zip);
     }
 
-    public void register() {
+    public void register(){
         this.registerButton.click();
     }
 
